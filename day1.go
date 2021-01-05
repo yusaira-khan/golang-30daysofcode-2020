@@ -31,7 +31,7 @@ func main() {
 	s2  := scanner.Text()
 
 	fmt.Println(i+i2)
-	fmt.Println(d+d2)
+	fmt.Printf("%.1f\n",d+d2)
 	fmt.Println(s+s2)
 
 }
