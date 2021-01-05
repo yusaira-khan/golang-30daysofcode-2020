@@ -19,13 +19,19 @@ func main() {
 	// Declare second integer, double, and String variables.
 
 	// Read and save an integer, double, and String to your variables.
+	scanner.Scan()
+	text  := scanner.Text()
+	i2, _ := strconv.ParseUint(text,10,64)
 
-	// Print the sum of both integer variables on a new line.
+	scanner.Scan()
+	text2  := scanner.Text()
+	d2,_ := strconv.ParseFloat(text2,64)
 
-	// Print the sum of the double variables on a new line.
+	scanner.Scan()
+	s2  := scanner.Text()
 
-	// Concatenate and print the String variables on a new line
-	// The 's' variable above should be printed first.
-
+	fmt.Println(i+i2)
+	fmt.Println(d+d2)
+	fmt.Println(s+s2)
 
 }
