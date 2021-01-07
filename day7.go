@@ -9,20 +9,37 @@ import (
 	"strings"
 )
 
-func swap (a &int32, b &int32){
-
+func swap(a *int32, b *int32) {
+	t := *b
+	*b = *a
+	*a = t
 }
-func reverse(arr &int32){
-	l:= len(arr)/2
-	e:= len(arr) -1
-	i:= 0
-	for i < l; i++,e-- {
-		swap(arr[i],arr[e])
+func reverse(arr []int32) {
+	l := len(arr) / 2
+	e := len(arr) - 1
+	i := 0
+	for i < l {
+		swap(&arr[i], &arr[e])
+		i++
+		e--
 	}
+}
+func printWSpace(arr []int32){
+	l:= len(arr)
+	for i:=0; i < l; {
+		fmt.Print(arr[i])
+		i++
+		if(i==l){
+			fmt.Print("\n")
+		}else{
+			fmt.Print(" ")
+		}
+	}
+
 }
 
 func main() {
-	reader := bufio.NewReaderSize(os.Stdin, 1024 * 1024)
+	reader := bufio.NewReaderSize(os.Stdin, 1024*1024)
 
 	nTemp, err := strconv.ParseInt(readLine(reader), 10, 64)
 	checkError(err)
@@ -38,6 +55,8 @@ func main() {
 		arrItem := int32(arrItemTemp)
 		arr = append(arr, arrItem)
 	}
+	reverse(arr)
+	printWSpace(arr)
 
 }
 
